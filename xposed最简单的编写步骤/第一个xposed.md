@@ -9,9 +9,9 @@
   	1.切换到project视图，在 app目录下新建一个lib，并导入XposedBridgeApi-xx.jar
   	2.把XposedBridgeApi-xx.jar加为外部库
 
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\1.png)
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\1-1628177390654.png)
 
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\2.png)
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\2.png)
 
 
 
@@ -42,9 +42,9 @@
 </manifest>
 ```
 
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\5.png)
 
 
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\5.png)
 
 4.在src新建assets目录，并在assets目录下新建一个xposed_init文本，在文本写入hook包的包名.Hook类的类名：
 
@@ -56,17 +56,15 @@
 com.hookdemo.Main
 ```
 
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\7.png)
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\7-1628177450614.png)
 
-
-
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\8.png)
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\8-1628177463556.png)
 
 5.修改编译的配置：
 
 app/src/build.gradle
 
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\4.png)
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\4-1628177482498.png)
 
 两个位置
 
@@ -126,7 +124,9 @@ public class Main extends AppCompatActivity {
 
 注：要修改五个地方
 
-![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\090712lo6u3i5luoxis5vu.png)
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\第一个xposed.assets\090712lo6u3i5luoxis5vu-1628177514607.png)
+
+
 
 
 

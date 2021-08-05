@@ -7,18 +7,27 @@
 2.导入相应的jar包
 
   	1.切换到project视图，在 app目录下新建一个lib，并导入XposedBridgeApi-xx.jar
+  	2.把XposedBridgeApi-xx.jar加为外部库
 
-​	  2.把XposedBridgeApi-xx.jar加为外部库
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\1.png)
+
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\2.png)
 
 
 
-
-
-3.找到AndroidManifest.xml
-
-​	加入一下三行代码，让这个模块变成克识别的xposed模块
+3.在AndroidManifest.xml中增加三个meta-data用来标示Xposed模块以及模块信息
 
 ```html
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.lovelywhite.wxautologin">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
         <meta-data
             android:name="xposedmodule"
             android:value="true" />
@@ -28,11 +37,16 @@
         <meta-data
             android:name="xposedminversion"
             android:value="82" />
+    </application>
+
+</manifest>
 ```
 
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\5.png)
 
 
-4.在src新建assets目录，并在assets目录下新建一个xposed_init文本，在文本连麦你下入hook包的包名.Hook类的类名：
+
+4.在src新建assets目录，并在assets目录下新建一个xposed_init文本，在文本写入hook包的包名.Hook类的类名：
 
 ​	如当前hook程序为包名为：com.hookdemo ,hook程序的类名为Main，
 
@@ -42,13 +56,22 @@
 com.hookdemo.Main
 ```
 
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\7.png)
 
 
-5.修改编译的配置：app/src/build.gradle
+
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\8.png)
+
+5.修改编译的配置：
+
+app/src/build.gradle
+
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\4.png)
+
+两个位置
 
 ```
-
-
+sourceSets{main{assets.srcDirs=['src/main/asets','src/main/assets/']}}
 provided file(‘de.robv.android.xposed:api:82')
 ```
 
@@ -56,7 +79,7 @@ provided file(‘de.robv.android.xposed:api:82')
 
 
 
-6.编写hook代码，类名和xpoed_init类名一样
+6.编写hook代码，类名和xpoed_init.类名一样
 
 ```
 package com.example.hookdemo;
@@ -96,3 +119,27 @@ public class Main extends AppCompatActivity {
     }
 }
 ```
+
+
+
+
+
+注：要修改五个地方
+
+![](C:\Users\tjp40922\Desktop\xpoedrelate\xposed最简单的编写步骤\090712lo6u3i5luoxis5vu.png)
+
+
+
+
+
+可参考：
+
+https://blog.csdn.net/ASSYIRAN/article/details/86139496
+
+https://www.52pojie.cn/thread-873366-1-1.html
+
+https://www.zhaokeli.com/article/8389.html
+
+https://lovelywhite.cn/android/wxautologin.html
+
+https://www.cnblogs.com/gordon0918/p/6732100.html
